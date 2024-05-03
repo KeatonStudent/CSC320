@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);  // Start scanner block
+
+        // Prompt the user for their weekly income
+        System.out.print("Enter your weekly income: ");
+        double weeklyIncome = scanner.nextDouble();  // End of input
+
+        // Calculate the tax withheld based on income brackets
+        double taxWithheld;
+        if (weeklyIncome < 500) {
+            taxWithheld = weeklyIncome * 0.10;  // 10% tax rate
+        } else if (weeklyIncome >= 500 && weeklyIncome < 1500) {
+            taxWithheld = weeklyIncome * 0.15;  // 15% tax rate
+        } else if (weeklyIncome >= 1500 && weeklyIncome < 2500) {
+            taxWithheld = weeklyIncome * 0.20;  // 20% tax rate
+        } else {
+            taxWithheld = weeklyIncome * 0.30;  // 30% tax rate
+        }  // End of if-else block
+
+        // Output the calculated tax withheld
+        System.out.printf("Your weekly tax withheld is: $%.2f\n", taxWithheld);
+
+        scanner.close();  // Close scanner to prevent resource leak
+    }  // End of main method
+}  // End of class CSC320_Mod3_CT
