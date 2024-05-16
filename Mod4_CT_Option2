@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class GradeStatistics {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Initialization of variables
+        float sum = 0.0f;
+        float maximum = Float.MIN_VALUE;
+        float minimum = Float.MAX_VALUE;
+        float grade;
+
+        // Loop to get user input and compute statistics
+        for (int i = 1; i <= 10; i++) {
+            System.out.print("Enter grade " + i + " (a floating-point number): ");
+            grade = scanner.nextFloat();
+            
+            sum += grade; // Add current grade to sum
+            
+            if (grade > maximum) {
+                maximum = grade; // Update maximum if current grade is greater
+            }
+            
+            if (grade < minimum) {
+                minimum = grade; // Update minimum if current grade is lesser
+            }
+        }
+        
+        // Calculate average
+        float average = sum / 10;
+
+        // Output results
+        System.out.printf("Average grade: %.2f\n", average);
+        System.out.printf("Maximum grade: %.2f\n", maximum);
+        System.out.printf("Minimum grade: %.2f\n", minimum);
+
+        scanner.close();
+    }
+}
